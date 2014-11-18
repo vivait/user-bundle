@@ -1,0 +1,34 @@
+{
+    "name": "vivait/user-bundle",
+    "description": "User Bundle",
+    "authors": [
+        {
+            "name": "Lewis Wright",
+            "email": "lewis@vivait.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4",
+        "symfony/framework-bundle": "~2.3",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "pugx/multi-user-bundle":"~3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7.0",
+        "phpspec/phpspec": "~2.0",
+        "behat/behat": "~3.0",
+        "behat/symfony2-extension": "~2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Vivait\\UserBundlebtsy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "test\\Vivait\\UserBundle\\": ""
+        }
+    }
+}
