@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Vivait\\UserBundlebtsy\\": "src/"
+            "Vivait\\UserBundle\\": "src/"
         }
     },
     "autoload-dev": {
