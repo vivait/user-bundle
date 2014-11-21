@@ -4,7 +4,7 @@ namespace Vivait\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Vivait\UserBundle\Entity\User;
+use Vivait\UserBundle\Model\User;
 
 class TwoFactorController extends Controller
 {

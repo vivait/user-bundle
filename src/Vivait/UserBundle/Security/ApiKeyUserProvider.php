@@ -4,7 +4,6 @@ namespace Vivait\UserBundle\Security;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -54,7 +53,7 @@ class ApiKeyUserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        $repo = $this->em->getRepository('VivaitVivadeskBundle:User');
+        $repo = $this->em->getRepository('Vivait\UserBundle\Model\User');
         return $repo->findOneByUsername($username);
     }
 
@@ -85,6 +84,6 @@ class ApiKeyUserProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return 'Vivait\VivadeskBundle\Entity\User' === $class;
+        return 'Vivait\UserBundle\Model\User' === $class;
     }
 }

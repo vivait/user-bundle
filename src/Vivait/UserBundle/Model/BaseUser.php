@@ -1,18 +1,19 @@
 <?php
 
-namespace Vivait\UserBundle\Entity;
+namespace Vivait\UserBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as UserModel;
+use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface;
 
 
 /**
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Entity\Repository\BaseUserRepository")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\BaseUserRepository")
  * @ORM\Table(name="base_user")
  * @ORM\InheritanceType("JOINED")
  */
-abstract class BaseUser extends UserModel
+abstract class BaseUser extends UserModel implements TwoFactorInterface
 {
     /**
      * @var integer
@@ -24,7 +25,7 @@ abstract class BaseUser extends UserModel
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Vivait\UserBundle\Entity\Group")
+     * @ORM\ManyToMany(targetEntity="Vivait\UserBundle\Model\Group")
      * @ORM\JoinTable(name="fos_user_user_group",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
@@ -59,7 +60,7 @@ abstract class BaseUser extends UserModel
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
@@ -88,5 +89,6 @@ abstract class BaseUser extends UserModel
     }
 
     abstract public function setFullname($fullname);
+
     abstract public function getFullname();
 }

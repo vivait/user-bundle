@@ -1,9 +1,9 @@
 <?php
 
-namespace Vivait\UserBundle\Entity;
+namespace Vivait\UserBundle\Model;
 
-use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\Group as BaseGroup;
 
 
 /**
@@ -21,7 +21,7 @@ class Group extends BaseGroup
 
     public function __construct()
     {
-        parent::__construct('',[]);
+        parent::__construct('', []);
     }
 
 }

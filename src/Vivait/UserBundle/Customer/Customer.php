@@ -1,37 +1,35 @@
 <?php
 
+namespace Vivait\UserBundle\Customer;
 
-namespace Vivait\UserBundle\Entity;
-
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Vivait\CustomerBundle\Entity\Customer;
-use Vivait\CustomerBundle\Entity\Email;
+use Vivait\CustomerBundle\Model\Customer as FullCustomer;
+use Vivait\CustomerBundle\Model\Email;
+use Vivait\UserBundle\Model\BaseUser;
 
 /**
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Entity\Repository\UserCustomerRepository")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\UserRepository")
  * @ORM\Table(name="user_customer")
  */
-class UserCustomer extends BaseUser
+class Customer extends BaseUser
 {
     /**
-     * @var Customer
+     * @var FullCustomer
      *
-     * @ORM\OneToOne(targetEntity="Vivait\CustomerBundle\Entity\Customer")
+     * @ORM\OneToOne(targetEntity="Vivait\CustomerBundle\Model\Customer")
      */
     private $customer;
 
     public function setFullname($fullname)
     {
+        var_dump($fullname);
         throw new \LogicException('Customer names can\'t be changed via this method');
     }
 
     public function getFullname()
     {
-        return (string)$this->customer->getName();
+        return (string) $this->customer->getName();
     }
 
     public function setEmail($email)

@@ -1,18 +1,13 @@
 <?php
 
 
-namespace Vivait\UserBundle\Entity;
+namespace Vivait\UserBundle\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class Customer
- * @package Vivait\UserBundle\Entity
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Entity\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\UserRepository")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
