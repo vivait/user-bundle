@@ -49,7 +49,7 @@ class VivaitUserBundle extends Bundle
                 array_keys($mappings),
                 $mappings,
                 [],
-                ''
+                false
             )
         );
     }

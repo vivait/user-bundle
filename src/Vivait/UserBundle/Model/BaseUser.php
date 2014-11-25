@@ -87,7 +87,14 @@ abstract class BaseUser extends UserModel implements TwoFactorInterface
         $this->googleAuthenticatorSecret = $googleAuthenticatorSecret;
     }
 
+    /**
+     * @param string $fullname
+     * @return $this
+     */
     abstract public function setFullname($fullname);
 
+    /**
+     * @return string
+     */
     abstract public function getFullname();
 }
