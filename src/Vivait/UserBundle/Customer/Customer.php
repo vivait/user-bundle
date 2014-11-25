@@ -6,10 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vivait\CustomerBundle\Model\Customer as FullCustomer;
 use Vivait\CustomerBundle\Model\Email;
+use Vivait\CustomerBundle\Model\Name;
 use Vivait\UserBundle\Model\BaseUser;
 
 /**
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Customer\Repository\CustomerRepository")
  * @ORM\Table(name="user_customer")
  */
 class Customer extends BaseUser
@@ -21,10 +22,52 @@ class Customer extends BaseUser
      */
     private $customer;
 
+    function __construct(FullCustomer $customer = null)
+    {
+        parent::__construct();
+        $this->password = '';
+
+        if ($customer) {
+            $this->setCustomer($customer);
+        }
+    }
+
+    /**
+     * Gets customer
+     * @return FullCustomer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * Sets customer
+     * @param FullCustomer $customer
+     * @return $this
+     */
+    public function setCustomer(FullCustomer $customer)
+    {
+        $this->customer = $customer;
+        $this->setUsername(
+            $customer->getReference() ? '#' . $customer->getReference() : preg_replace(
+                '/[^[:alnum:]]/u',
+                '',
+                (string) $customer->getName()
+            )
+        );
+        $this->email = (string) $customer->getEmail();
+
+        return $this;
+    }
+
     public function setFullname($fullname)
     {
-        var_dump($fullname);
-        throw new \LogicException('Customer names can\'t be changed via this method');
+        $name = new \HumanNameParser_Parser($fullname);
+
+        $this->customer->setName(new Name($name->getFirst(), $name->getLast(), $name->getMiddle()));
+
+        return $this;
     }
 
     public function getFullname()
@@ -34,7 +77,10 @@ class Customer extends BaseUser
 
     public function setEmail($email)
     {
-        return $this->customer->setEmail(new Email($email));
+        $this->customer->setEmail(new Email($email));
+        $this->email = $email;
+
+        return $this;
     }
 
     public function getEmail()

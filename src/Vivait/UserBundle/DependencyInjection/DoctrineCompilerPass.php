@@ -5,18 +5,8 @@ namespace Vivait\UserBundle\DependencyInjection;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class EntityNamespaceCompilerPass implements CompilerPassInterface
+class DoctrineCompilerPass implements CompilerPassInterface
 {
-    /**
-     * @var array
-     */
-    private $mapping;
-
-    function __construct(array $mapping)
-    {
-        $this->mapping = $mapping;
-    }
-
     /**
      * You can modify the container here before it is dumped to PHP code.
      *
@@ -28,8 +18,8 @@ class EntityNamespaceCompilerPass implements CompilerPassInterface
     {
         $ormConfigDef = $container->getDefinition('doctrine.orm.configuration');
         $ormConfigDef->addMethodCall(
-            'setEntityNamespaces',
-            [$this->mapping]
+            'addCustomHydrationMode',
+            ['UserCustomerHydrator', 'Vivait\UserBundle\Customer\Hydrator\CustomerHydrator']
         );
     }
 }

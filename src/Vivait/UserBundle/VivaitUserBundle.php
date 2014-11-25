@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Vivait\UserBundle\DependencyInjection\DoctrineCompilerPass;
 
 class VivaitUserBundle extends Bundle
 {
@@ -18,6 +19,8 @@ class VivaitUserBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
+
+        $container->addCompilerPass(new DoctrineCompilerPass());
 
         $this->registerModel($container);
     }

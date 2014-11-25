@@ -5,17 +5,22 @@ namespace Vivait\UserBundle\Model\Repository;
 use Doctrine\ORM\EntityRepository;
 use Vivait\UserBundle\Model\BaseUser;
 
-class BaseUserRepository extends EntityRepository
+class BaseUserRepository extends EntityRepository implements UserRepositoryInterface
 {
     /**
      * @return BaseUser[]
      */
     public function getAllUsers()
     {
-        return $this->_em->createQueryBuilder()
-                         ->select('u')
-                         ->from('Vivait\UserBundle\Model\BaseUser', 'u', 'u.username')
-                         ->getQuery()
-                         ->getResult();
+        $users = [];
+
+        foreach ($this->getClassMetadata()->subClasses as $subClass) {
+            /** @var UserRepositoryInterface $repo */
+            $repo = $this->_em->getRepository($subClass);
+
+            $users += $repo->getAllUsers();
+        }
+
+        return $users;
     }
 }
