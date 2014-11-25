@@ -2,7 +2,6 @@
 
 namespace Vivait\UserBundle\Security;
 
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface;
@@ -18,7 +17,6 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, Authentica
 {
 
     protected $user_provider;
-
 
     public function __construct(ApiKeyUserProvider $user_provider)
     {
@@ -38,7 +36,6 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, Authentica
         }
 
         $user = $this->user_provider->loadUserByUsername($username);
-
 
         return new PreAuthenticatedToken(
             $user,

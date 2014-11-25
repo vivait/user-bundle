@@ -5,7 +5,6 @@ namespace Vivait\UserBundle\Model;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\Group as BaseGroup;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_group")

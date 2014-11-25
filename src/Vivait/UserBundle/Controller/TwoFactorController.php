@@ -61,5 +61,4 @@ class TwoFactorController extends Controller
         $user_manager->updateUser($user);
     }
 
-
 }
