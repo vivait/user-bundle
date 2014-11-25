@@ -50,7 +50,7 @@ abstract class BaseUser extends UserModel implements TwoFactorInterface
     /**
      * Get id
      *
-     * @return string
+     * @return integer
      */
     public function getId()
     {
@@ -71,7 +71,7 @@ abstract class BaseUser extends UserModel implements TwoFactorInterface
      * Return the Google Authenticator code
      * When an empty string or null is returned, the Google authentication is disabled.
      *
-     * @return string|null
+     * @return integer
      */
     public function getGoogleAuthenticatorSecret()
     {
