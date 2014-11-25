@@ -3,7 +3,6 @@
 namespace Vivait\UserBundle\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Vivait\CustomerBundle\Model\Customer as FullCustomer;
 use Vivait\CustomerBundle\Model\Email;
 use Vivait\CustomerBundle\Model\Name;

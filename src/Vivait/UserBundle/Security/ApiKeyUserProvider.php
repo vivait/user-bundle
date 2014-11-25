@@ -22,6 +22,9 @@ class ApiKeyUserProvider implements UserProviderInterface
         $this->em = $em;
     }
 
+    /**
+     * @return string
+     */
     public function getUsernameForApiKey($api_key)
     {
         $repo = $this->em->getRepository('VivaitApiBundle:ApiKey');

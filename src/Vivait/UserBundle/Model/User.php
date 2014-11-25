@@ -65,7 +65,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return string
+     * @return integer
      */
     public function getId()
     {
