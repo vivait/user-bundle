@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as UserModel;
 use Scheb\TwoFactorBundle\Model\Google\TwoFactorInterface;
 
-
 /**
  * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\BaseUserRepository")
  * @ORM\Table(name="base_user")

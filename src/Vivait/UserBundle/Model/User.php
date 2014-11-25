@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Vivait\UserBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -71,6 +70,5 @@ class User extends BaseUser
     {
         return $this->id;
     }
-
 
 }

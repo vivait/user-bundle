@@ -2,7 +2,6 @@
 
 namespace Vivait\UserBundle\Security;
 
-
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;

@@ -16,7 +16,6 @@ class PasswordResettingListener implements EventSubscriberInterface{
         $this->router = $router;
     }
 
-
     public static function getSubscribedEvents() {
         return [
             FOSUserEvents::RESETTING_RESET_SUCCESS => 'onPasswordResettingSuccess',
