@@ -1,6 +1,6 @@
 <?php
 
-namespace Vivait\UserBundle\Customer;
+namespace Vivait\UserBundle\Adapter;
 
 use Doctrine\ORM\Mapping as ORM;
 use Vivait\CustomerBundle\Model\Customer as FullCustomer;
@@ -9,7 +9,7 @@ use Vivait\CustomerBundle\Model\Name;
 use Vivait\UserBundle\Model\BaseUser;
 
 /**
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Customer\Repository\CustomerRepository")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Adapter\Repository\CustomerRepository")
  * @ORM\Table(name="user_customer")
  */
 class Customer extends BaseUser

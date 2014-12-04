@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\UserRepository")
- * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="Vivait\UserBundle\Model\Repository\StaffRepository")
+ * @ORM\Table(name="fos_staff")
  */
-class User extends BaseUser
+class Staff extends BaseUser
 {
     /**
      * @var integer
@@ -58,7 +58,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->username = sprintf("User_%s", uniqid());
+        $this->username = sprintf("Staff_%s", uniqid());
     }
 
     /**

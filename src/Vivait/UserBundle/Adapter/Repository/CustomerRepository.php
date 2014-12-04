@@ -1,9 +1,9 @@
 <?php
 
-namespace Vivait\UserBundle\Customer\Repository;
+namespace Vivait\UserBundle\Adapter\Repository;
 
 use Vivait\CustomerBundle\Model\Customer;
-use Vivait\UserBundle\Customer\Customer as UserCustomer;
+use Vivait\UserBundle\Adapter\Customer as UserCustomer;
 use Vivait\UserBundle\Model\Repository\UserRepositoryAbstract;
 use Vivait\UserBundle\Model\Repository\UserRepositoryInterface;
 
@@ -17,7 +17,7 @@ class CustomerRepository extends UserRepositoryAbstract implements UserRepositor
         $query = $this->_em->createQueryBuilder()
                            ->select('uc, c')
                            ->from('Vivait\CustomerBundle\Model\Customer', 'c', 'c.id')
-                           ->leftJoin('Vivait\UserBundle\Customer\Customer', 'uc', 'WITH', 'uc.customer = c');
+            ->leftJoin('Vivait\UserBundle\Adapter\Customer', 'uc', 'WITH', 'uc.customer = c');
 
         $customers = $query
             ->getQuery()

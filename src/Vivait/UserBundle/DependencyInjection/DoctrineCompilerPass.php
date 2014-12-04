@@ -19,7 +19,7 @@ class DoctrineCompilerPass implements CompilerPassInterface
         $ormConfigDef = $container->getDefinition('doctrine.orm.configuration');
         $ormConfigDef->addMethodCall(
             'addCustomHydrationMode',
-            ['UserCustomerHydrator', 'Vivait\UserBundle\Customer\Hydrator\CustomerHydrator']
+            ['UserCustomerHydrator', 'Vivait\UserBundle\Adapter\Hydrator\CustomerHydrator']
         );
     }
 }

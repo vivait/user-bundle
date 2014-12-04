@@ -55,7 +55,7 @@ class ApiKeyUserProvider implements UserProviderInterface
      */
     public function loadUserByUsername($username)
     {
-        $repo = $this->em->getRepository('Vivait\UserBundle\Model\User');
+        $repo = $this->em->getRepository('Vivait\UserBundle\Model\BaseUser');
         return $repo->findOneByUsername($username);
     }
 

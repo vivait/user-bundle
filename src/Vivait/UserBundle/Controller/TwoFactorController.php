@@ -4,7 +4,7 @@ namespace Vivait\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Vivait\UserBundle\Model\User;
+use Vivait\UserBundle\Model\BaseUser;
 
 class TwoFactorController extends Controller
 {
@@ -54,7 +54,7 @@ class TwoFactorController extends Controller
     /**
      * @param $user
      */
-    private function updateTwoFactor($secret, User $user)
+    private function updateTwoFactor($secret, BaseUser $user)
     {
         $user->setGoogleAuthenticatorSecret($secret);
         $user_manager = $this->container->get('fos_user.user_manager');
