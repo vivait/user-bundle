@@ -38,8 +38,7 @@ class VivaitUserBundle extends Bundle
         // We've also loaded the customer bundle
         if ($container->hasExtension('vivait_customer')) {
             // Enable the compatibility entity
-            $mappings[__NAMESPACE__ . '\Customer\Customer'] = $modelDir . '/Customer';
-            // TODO: Also add an entity resolver that replaces the standard customer entity
+            $mappings[__NAMESPACE__ . '\Adapter\Customer'] = $modelDir . '/Customer';
         }
 
         $container->addCompilerPass(
